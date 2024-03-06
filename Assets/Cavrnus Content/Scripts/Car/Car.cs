@@ -1,17 +1,25 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace CavrnusDemo
 {
     public class Car : MonoBehaviour
     {
-        [FormerlySerializedAs("Wheels")] public List<GameObject> wheels;
+        public List<Tire> TiresOnCar;
 
-        public void SetWheelsVisibility(bool vis)
+        public void SetAllTiresVisibility(bool vis)
         {
             Debug.Log($"Setting wheels vis to {vis}");
-            wheels?.ForEach(go => go.gameObject.SetActive(vis));
+            TiresOnCar?.ForEach(go => go.gameObject.SetActive(vis));
+        }
+
+        public void SetTireVisibility(Tire.TireTypeEnum tire, bool vis)
+        {
+            foreach (var carTire in TiresOnCar) {
+                if (carTire.TireType == tire) {
+                    carTire.SetVisibility(vis);
+                }
+            }
         }
     }
 }

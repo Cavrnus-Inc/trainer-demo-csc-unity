@@ -12,7 +12,7 @@ namespace CavrnusDemo
             Deactivated
         }
         
-        public Action OnInteract { get; set; }
+        public Action<GameObject> OnInteract { get; set; }
 
         [SerializeField] private float rotActive;
         [SerializeField] private float rotDeactive;
@@ -27,6 +27,11 @@ namespace CavrnusDemo
         {
             col.enabled = state;
             outline.enabled = state;
+        }
+        
+        public void SetVisibility(bool state)
+        {
+            gameObject.SetActive(state);
         }
 
         public void ForceRotationTo(LeverStateEnum lse)
@@ -49,7 +54,7 @@ namespace CavrnusDemo
             SetActiveState(false);
             StartCoroutine(ActivateRoutine());
             
-            OnInteract?.Invoke();
+            OnInteract?.Invoke(gameObject);
         }
 
         private IEnumerator ActivateRoutine()

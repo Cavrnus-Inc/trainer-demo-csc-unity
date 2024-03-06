@@ -632,11 +632,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adbf7f8a7fac94e42af5348b5ade8fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wheels:
-  - {fileID: 7320798353863633274}
-  - {fileID: 1580843808650802640}
-  - {fileID: 1792024153518560298}
-  - {fileID: 4718977112986045281}
+  TiresOnCar:
+  - {fileID: 242331820049535618}
+  - {fileID: 4309187986249287768}
+  - {fileID: 1333560159036311222}
+  - {fileID: 8942139786508999889}
 --- !u!1 &651744713069772159
 GameObject:
   m_ObjectHideFlags: 0
@@ -1231,6 +1231,7 @@ GameObject:
   - component: {fileID: 603326766876116358}
   - component: {fileID: 2385780138962459553}
   - component: {fileID: 1067992863836288071}
+  - component: {fileID: 4309187986249287768}
   m_Layer: 0
   m_Name: Wheel LF
   m_TagString: Untagged
@@ -1353,6 +1354,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.3320897
   m_Center: {x: 0.00013602525, y: 0.00000047683716, z: 0.0000015944246}
+--- !u!114 &4309187986249287768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580843808650802640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01c46c82563e48a7b47029445108a15e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TireType: 0
 --- !u!1 &1658009104032522419
 GameObject:
   m_ObjectHideFlags: 0
@@ -1449,6 +1463,7 @@ GameObject:
   - component: {fileID: 4774927643515585253}
   - component: {fileID: 4062917416338739745}
   - component: {fileID: 4679890121683429884}
+  - component: {fileID: 1333560159036311222}
   m_Layer: 0
   m_Name: Wheel RF
   m_TagString: Untagged
@@ -1571,6 +1586,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.3320896
   m_Center: {x: -0.778964, y: -1.239, z: 0.3146016}
+--- !u!114 &1333560159036311222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792024153518560298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01c46c82563e48a7b47029445108a15e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TireType: 1
 --- !u!1 &1977367131986779497
 GameObject:
   m_ObjectHideFlags: 0
@@ -3500,6 +3528,7 @@ GameObject:
   - component: {fileID: 4821963152591392876}
   - component: {fileID: 8118219429040058984}
   - component: {fileID: 3548783570238218846}
+  - component: {fileID: 8942139786508999889}
   m_Layer: 0
   m_Name: Wheel RB
   m_TagString: Untagged
@@ -3573,6 +3602,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8942139786508999889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4718977112986045281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01c46c82563e48a7b47029445108a15e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TireType: 3
 --- !u!1 &4751347692335369763
 GameObject:
   m_ObjectHideFlags: 0
@@ -5703,6 +5745,7 @@ GameObject:
   - component: {fileID: 3713528400070846296}
   - component: {fileID: 1980122454992612702}
   - component: {fileID: 1028920866843175901}
+  - component: {fileID: 242331820049535618}
   m_Layer: 0
   m_Name: Wheel LB
   m_TagString: Untagged
@@ -5825,6 +5868,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.3320897
   m_Center: {x: 0.00013602525, y: 0, z: 0.0000015944246}
+--- !u!114 &242331820049535618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7320798353863633274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01c46c82563e48a7b47029445108a15e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TireType: 2
 --- !u!1 &7370054671731307799
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,6 +20,7 @@ namespace CavrnusDemo
         [Header("Managers")]
         [SerializeField] private Car car;
         [SerializeField] private CarLift carLift;
+        [SerializeField] private TireInstallationManager tireInstallation;
         [SerializeField] private LerpPositionManager lerpPositionManager;
         
         [Header("Buttons and Levers")]
@@ -53,7 +54,7 @@ namespace CavrnusDemo
 
         private void DeactivateAllItems()
         {
-            car.SetWheelsVisibility(true);
+            car.SetAllTiresVisibility(true);
             liftCarLever.SetActiveState(false);
             moveCarButton.SetActiveState(false);
             changeWheelsButton.SetActiveState(false);
@@ -65,6 +66,7 @@ namespace CavrnusDemo
             DeactivateAllItems();
             ResetItemTransforms();
             UnregisterEverything();
+            tireInstallation.ResetTires();
             
             SpaceConn.PostFloatPropertyUpdate(containerName, propertyName, 0);
         }
@@ -142,7 +144,7 @@ namespace CavrnusDemo
             lerpPositionManager.OnWayPointReached.AddListener(LiftPositionReached);
         }
         
-        private void MoveCarToLiftButtonPress()
+        private void MoveCarToLiftButtonPress(GameObject go)
         {
             lerpPositionManager.TargetPosition(LerpPositionManager.PositionEnum.AutoLift);
         }
@@ -170,7 +172,7 @@ namespace CavrnusDemo
             carLift.OnTopReached.AddListener(AutoLiftTopReached);
         }
         
-        private void LeverPulledToRaiseLift()
+        private void LeverPulledToRaiseLift(GameObject go)
         {
             carLift.Raise();
             Debug.Log("Lever Activated");  
@@ -196,7 +198,7 @@ namespace CavrnusDemo
             changeWheelsButton.OnInteract += WheelsButtonRemovePressed;
         }
 
-        private void WheelsButtonRemovePressed()
+        private void WheelsButtonRemovePressed(GameObject go)
         {
             PostNextStepToActivate(3);
         }
@@ -209,18 +211,17 @@ namespace CavrnusDemo
         {
             Debug.Log("Starting Step Three...");
             StepEntry();
-            car.SetWheelsVisibility(false);
-            changeWheelsButton.SetActiveState(true);
+            // car.SetAllTiresVisibility(false);
+            // changeWheelsButton.SetActiveState(true);
+            
+            tireInstallation.SetInstallationStatus(() => {
+                PostNextStepToActivate(4);
+            },Tire.TireTypeEnum.FL, Tire.TireTypeEnum.BL, Tire.TireTypeEnum.BR, Tire.TireTypeEnum.FR);
+            
             liftCarLever.ForceRotationTo(Cavrnus2WayLever.LeverStateEnum.Activated);
-            changeWheelsButton.OnInteract += WheelButtonPressedInstalled;
         }
 
-        private void WheelButtonPressedInstalled()
-        {
-            PostNextStepToActivate(4);
-        }
-
-        private void LeverLowerLift()
+        private void LeverLowerLift(GameObject go)
         {
             carLift.Lower();
         }
@@ -231,7 +232,7 @@ namespace CavrnusDemo
 
         private void LowerCarStep()
         {
-            car.SetWheelsVisibility(true);
+            car.SetAllTiresVisibility(true);
             Debug.Log("Starting Step Four...");
             
             StepEntry();
@@ -244,7 +245,7 @@ namespace CavrnusDemo
             carLift.OnBottomReached.AddListener(OnLiftBottomReached);
         }
 
-        private void LeverPulledToLowerLift()
+        private void LeverPulledToLowerLift(GameObject go)
         {
             carLift.Lower();
         }
@@ -273,7 +274,7 @@ namespace CavrnusDemo
             PostNextStepToActivate(6);
         }
 
-        private void FinalButtonPressToFinish()
+        private void FinalButtonPressToFinish(GameObject go)
         {
             lerpPositionManager.TargetPosition(LerpPositionManager.PositionEnum.End);
         }
@@ -304,7 +305,7 @@ namespace CavrnusDemo
             moveCarButton.OnInteract -= MoveCarToLiftButtonPress;
             lerpPositionManager.OnWayPointReached.RemoveListener(LiftPositionReached);
             changeWheelsButton.OnInteract -= WheelsButtonRemovePressed;
-            changeWheelsButton.OnInteract -= WheelButtonPressedInstalled;
+            // changeWheelsButton.OnInteract -= TiresInstalled;
         }
         
         #endregion
