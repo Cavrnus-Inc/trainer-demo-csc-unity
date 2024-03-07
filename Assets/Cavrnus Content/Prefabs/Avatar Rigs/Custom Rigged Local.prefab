@@ -115,6 +115,7 @@ GameObject:
   - component: {fileID: 1119442383691278099}
   - component: {fileID: 1625086650345085333}
   - component: {fileID: 879855871153359146}
+  - component: {fileID: 3044527406214157399}
   m_Layer: 0
   m_Name: Custom Rigged Local
   m_TagString: Untagged
@@ -279,8 +280,22 @@ MonoBehaviour:
   reticle: {fileID: 6802662047516375374}
   interactableColor: {r: 0, g: 0.6230023, b: 1, a: 1}
   defaultColor: {r: 1, g: 1, b: 1, a: 1}
-  objectGrabPointTransform: {fileID: 2879405576913206920}
-  carriedObject: {fileID: 0}
+--- !u!114 &3044527406214157399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432733465644987602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2dda050550238348a00fcf43178e882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  components:
+  - {fileID: 879855871153359146}
+  - {fileID: 3693080042030412707}
+  - {fileID: 295821469455350991}
 --- !u!1 &441503023215760414
 GameObject:
   m_ObjectHideFlags: 0
