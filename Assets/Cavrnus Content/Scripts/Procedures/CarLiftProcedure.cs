@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using CavrnusSdk.API;
 using UnityEngine;
 
@@ -7,8 +6,7 @@ namespace CavrnusDemo
 {
     public class CarLiftProcedure : MonoBehaviour
     {
-        [Header("Procedure Steps")]
-        public List<string> Steps;
+        public ProcedureInfo ProcedureInfo;
         
         [Header("UI")]
         [SerializeField] private ProcedureBoard boardPrefab;
@@ -318,7 +316,7 @@ namespace CavrnusDemo
 
             var currentStep = SpaceConn.GetFloatPropertyValue(containerName, propertyName);
 
-            if (currentStep + 1 < Steps.Count) {
+            if (currentStep + 1 < ProcedureInfo.Steps.Count) {
                 SpaceConn.PostFloatPropertyUpdate(containerName, propertyName, currentStep + 1);
             }
         }

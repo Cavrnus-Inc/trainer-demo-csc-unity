@@ -16,10 +16,10 @@ namespace CavrnusDemo
         {
             carProcedure = procedure;
 
-            if (carProcedure.Steps.Count > 0) {
-                for (var index = 0; index < carProcedure.Steps.Count; index++) {
+            if (carProcedure.ProcedureInfo.Steps.Count > 0) {
+                for (var index = 0; index < carProcedure.ProcedureInfo.Steps.Count; index++) {
                     var go = Instantiate(entryPrefab, entryContainer);
-                    go.Setup(procedure.SpaceConn, procedure.containerName, procedure.propertyName, index, carProcedure.Steps[index]);
+                    go.Setup(procedure.SpaceConn, procedure.containerName, procedure.propertyName, index, carProcedure.ProcedureInfo.Steps[index].Title);
                 }
             }
             else
