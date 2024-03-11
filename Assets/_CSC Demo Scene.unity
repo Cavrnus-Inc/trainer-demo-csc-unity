@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.044545054, g: 0.1501996, b: 0.45055196, a: 1}
+  m_IndirectSpecularColor: {r: 0.04453485, g: 0.15022357, b: 0.45034835, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -908,6 +908,42 @@ PrefabInstance:
     - target: {fileID: 2037437134043909056, guid: 08ed461f85204af40b5ac26d58f97f69, type: 3}
       propertyPath: rig
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037437134043909056, guid: 08ed461f85204af40b5ac26d58f97f69, type: 3}
+      propertyPath: ProcedureInfo.StepsId
+      value: CurrentStep
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037437134043909056, guid: 08ed461f85204af40b5ac26d58f97f69, type: 3}
+      propertyPath: ProcedureInfo.ProcedureId
+      value: CarLiftProcedure
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037437134043909056, guid: 08ed461f85204af40b5ac26d58f97f69, type: 3}
+      propertyPath: ProcedureInfo.Steps.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037437134043909056, guid: 08ed461f85204af40b5ac26d58f97f69, type: 3}
+      propertyPath: ProcedureInfo.Steps.Array.data[0].Title
+      value: Move car to auto lift
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037437134043909056, guid: 08ed461f85204af40b5ac26d58f97f69, type: 3}
+      propertyPath: ProcedureInfo.Steps.Array.data[1].Title
+      value: Raise car to lifted position
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037437134043909056, guid: 08ed461f85204af40b5ac26d58f97f69, type: 3}
+      propertyPath: ProcedureInfo.Steps.Array.data[2].Title
+      value: Remove old tires
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037437134043909056, guid: 08ed461f85204af40b5ac26d58f97f69, type: 3}
+      propertyPath: ProcedureInfo.Steps.Array.data[3].Title
+      value: Lower car
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037437134043909056, guid: 08ed461f85204af40b5ac26d58f97f69, type: 3}
+      propertyPath: ProcedureInfo.Steps.Array.data[4].Title
+      value: Move car to finished position
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037437134043909056, guid: 08ed461f85204af40b5ac26d58f97f69, type: 3}
+      propertyPath: ProcedureInfo.Steps.Array.data[5].Title
+      value: Completed procedure
       objectReference: {fileID: 0}
     - target: {fileID: 2055044751947074539, guid: 08ed461f85204af40b5ac26d58f97f69, type: 3}
       propertyPath: m_AnchorMax.y

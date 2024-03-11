@@ -29,8 +29,6 @@ namespace CavrnusDemo
         private ProcedureBoard spawnedProcedureBoard;
 
         public CavrnusSpaceConnection SpaceConn;
-        public string propertyName => "CurrentStep";
-        public string containerName => "CarLiftProcedure";
 
         private void Start()
         {
@@ -66,7 +64,7 @@ namespace CavrnusDemo
             UnregisterEverything();
             tireInstallation.ResetTires();
             
-            SpaceConn.PostFloatPropertyUpdate(containerName, propertyName, 0);
+            SpaceConn.PostFloatPropertyUpdate(ProcedureInfo.ProcedureId, ProcedureInfo.StepsId, 0);
         }
         
         private void ResetItemTransforms()
@@ -84,14 +82,14 @@ namespace CavrnusDemo
         private void PostNextStepToActivate(int stepCompleted)
         {
             UnregisterEverything();
-            SpaceConn.PostFloatPropertyUpdate(containerName, propertyName, stepCompleted);
+            SpaceConn.PostFloatPropertyUpdate(ProcedureInfo.ProcedureId, ProcedureInfo.StepsId, stepCompleted);
         }
 
         private void SetupSteps()
         {
             // Default to first step. Also creates new container with def value if doesn't exist
-            SpaceConn.DefineFloatPropertyDefaultValue(containerName, propertyName, 0); 
-            SpaceConn.BindFloatPropertyValue(containerName, propertyName, currentStep => {
+            SpaceConn.DefineFloatPropertyDefaultValue(ProcedureInfo.ProcedureId, ProcedureInfo.StepsId, 0); 
+            SpaceConn.BindFloatPropertyValue(ProcedureInfo.ProcedureId, ProcedureInfo.StepsId, currentStep => {
                 switch (currentStep) {
                     case 0:
                         MoveCarToLiftStep();
@@ -314,10 +312,10 @@ namespace CavrnusDemo
         {
             if (SpaceConn == null) return;
 
-            var currentStep = SpaceConn.GetFloatPropertyValue(containerName, propertyName);
+            var currentStep = SpaceConn.GetFloatPropertyValue(ProcedureInfo.ProcedureId, ProcedureInfo.StepsId);
 
             if (currentStep + 1 < ProcedureInfo.Steps.Count) {
-                SpaceConn.PostFloatPropertyUpdate(containerName, propertyName, currentStep + 1);
+                SpaceConn.PostFloatPropertyUpdate(ProcedureInfo.ProcedureId, ProcedureInfo.StepsId, currentStep + 1);
             }
         }
 
@@ -325,10 +323,10 @@ namespace CavrnusDemo
         {
             if (SpaceConn == null) return;
 
-            var currentStep = SpaceConn.GetFloatPropertyValue(containerName, propertyName);
+            var currentStep = SpaceConn.GetFloatPropertyValue(ProcedureInfo.ProcedureId, ProcedureInfo.StepsId);
 
             if (currentStep - 1 >= 0) {
-                SpaceConn.PostFloatPropertyUpdate(containerName, propertyName, currentStep - 1);
+                SpaceConn.PostFloatPropertyUpdate(ProcedureInfo.ProcedureId, ProcedureInfo.StepsId, currentStep - 1);
             }
         }
         
